@@ -400,3 +400,39 @@ footer {
     background-color: #20ba5a;
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
 }
+/* Mobile Header Responsiveness */
+@media (max-width: 768px) {
+    /* हेडर को एक लाइन में सेट करने के लिए */
+    header, .header-container {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 15px !important;
+    }
+
+    .logo-area {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    /* लोगो का साइज़ छोटा करें */
+    .logo-area img {
+        width: 40px !important;
+        height: 40px !important;
+        object-fit: contain;
+    }
+
+    /* लंकाधीश कैब सर्विस टेक्स्ट को छोटा करें */
+    .logo-area h1 {
+        font-size: 14px !important;
+        line-height: 1.2 !important;
+        margin: 0 !important;
+    }
+
+    /* मेन्यू बटन (☰) को सही जगह सेट करें */
+    .menu-toggle, .hamburger, button {
+        margin: 0 !important;
+        padding: 6px 10px !important;
+    }
+}
