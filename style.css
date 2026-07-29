@@ -353,6 +353,30 @@ footer {
     font-size: 15px; 
     font-weight: 600;
 }
+/* Clean Floating Call Button */
+.call-float {
+    position: fixed;
+    bottom: 90px; /* व्हाट्सएप बटन के ठीक ऊपर */
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    background-color: #0288d1; /* प्रोफेशनल कॉल ब्लू कलर */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(2, 136, 209, 0.4);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.call-float:hover {
+    transform: scale(1.12);
+    background-color: #01579b;
+    box-shadow: 0 6px 20px rgba(2, 136, 209, 0.6);
+}
+
 /* Clean Floating WhatsApp Widget */
 .whatsapp-float {
     position: fixed;
