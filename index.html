@@ -172,6 +172,36 @@
             border-radius: 4px; 
         }
 
+        /* Auto Image Slider Styles */
+        .slider-wrapper {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 3px solid var(--primary);
+        }
+        .slider-track {
+            display: flex;
+            width: 500%; /* 5 images = 500% */
+            animation: slideAnimation 20s infinite;
+        }
+        .slider-track img {
+            width: 20%; /* 100% / 5 images */
+            object-fit: cover;
+            display: block;
+        }
+
+        @keyframes slideAnimation {
+            0%, 15% { transform: translateX(0); }
+            20%, 35% { transform: translateX(-20%); }
+            40%, 55% { transform: translateX(-40%); }
+            60%, 75% { transform: translateX(-60%); }
+            80%, 95% { transform: translateX(-80%); }
+            100% { transform: translateX(0); }
+        }
+
         /* Google Review & Business Section */
         .gbp-section { 
             background: #fff; 
@@ -291,12 +321,13 @@
         </div>
     </section>
 
-    <!-- Blog Section -->
+    <!-- Blog & Fleet Showcase Section -->
     <section class="section">
         <div class="content-box">
-            <h2>How to Choose the Best Cab Service for Long-Distance (Outstation) Travel?</h2>
+            <h2>Lankadhish Cab Blog & Popular Routes</h2>
             <div class="blog-meta">Published Year: 2026 | Author: Lankadhish Cab Service Team</div>
-
+            
+            <h3>How to Choose the Best Cab Service for Long-Distance (Outstation) Travel?</h3>
             <p>When traveling from one state to another or embarking on long journeys with family or for business, finding a safe and reliable car is the biggest priority. Here are a few essential tips to help you choose the best cab service:</p>
 
             <h3>1. Driver's Experience and License</h3>
@@ -312,6 +343,16 @@
                 <h3>Looking to Book an Outstation Cab?</h3>
                 <p>Contact <strong>Lankadhish Cab Service</strong> today for a safe ride at the best rates.</p>
                 <a href="tel:+91-9157575675" style="display:inline-block; background:#222; color:#fff; padding:10px 20px; text-decoration:none; border-radius:4px; margin-top:10px; font-weight:bold;">Call Us: +91-9157575675</a>
+            
+            <!-- Auto-Sliding Image Carousel -->
+            <div class="slider-wrapper">
+                <div class="slider-track">
+                    <img src="lankadhish-cab-service-best taxi-rajkot-to-Anjar.jpg.png" alt="Taxi Rajkot to Anjar">
+                    <img src="lankadhish-cab-service-best taxi-rajkot-to-bhachau.jpg.png" alt="Taxi Rajkot to Bhachau">
+                    <img src="lankadhish-cab-service-best taxi-rajkot-to-deesa.jpg.png" alt="Taxi Rajkot to Deesa">
+                    <img src="lankadhish-cab-service-best taxi-rajkot-to-mandvi.jpg.png" alt="Taxi Rajkot to Mandvi">
+                    <img src="lankadhish-cab-service-best taxi-rajkot-to-mundra.jpg.png" alt="Taxi Rajkot to Mundra">
+                </div>
             </div>
         </div>
     </section>
@@ -352,16 +393,6 @@
         <div class="faq-box">
             <h4>Q5: Can I book a cab for a round trip outside the city?</h4>
             <p>Yes, we specialize in both one-way drops and outstation round trips with experienced drivers.</p>
-        </div>
-
-        <div class="faq-box">
-            <h4>Q6: Do you require an advance payment for booking?</h4>
-            <p>For outstation trips or long-term bookings, a small advance payment may be required to confirm your vehicle, whereas local rides can often be paid for after completion.</p>
-        </div>
-
-        <div class="faq-box">
-            <h4>Q7: What happens if my flight or train is delayed?</h4>
-            <p>We monitor flight and train schedules for airport and station pickups, ensuring our driver waits for you even if there is a delay.</p>
         </div>
     </section>
 
