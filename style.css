@@ -93,7 +93,7 @@ nav {
 
 /* Hero Section */
 .hero { 
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('WhatsApp Image 2026-07-22 at 7.09.14 PM.jpeg') no-repeat center center/cover; 
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('image/WhatsApp Image 2026-07-22 at 7.09.14 PM.jpeg') no-repeat center center/cover; 
     color: #fff; 
     text-align: center; 
     padding: 90px 20px; 
