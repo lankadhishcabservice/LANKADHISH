@@ -438,8 +438,8 @@ footer {
 
 /* Individual City Card Style */
 .city-slide-card {
-    min-width: 200px;
-    max-width: 200px;
+    min-width: 270px; /* Width बढ़ा दी गई है ताकि पूरा बैनर फिट आ सके */
+    max-width: 270px;
     background: #ffffff;
     border-radius: 16px;
     overflow: hidden;
@@ -449,14 +449,10 @@ footer {
     transition: transform 0.2s ease;
 }
 
-.city-slide-card:hover {
-    transform: translateY(-4px);
-}
-
 .city-slide-card img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: 250px; /* बैनर की सही Height */
+    object-fit: fill; /* फ़ोटो को बिना काटे पूरा कार्ड में फिट करेगा */
     display: block;
 }
 
