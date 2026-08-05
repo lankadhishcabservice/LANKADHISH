@@ -505,3 +505,68 @@ footer {
     max-width: 900px !important; /* कार्ड की सही चौड़ाई */
     width: 90% !important;       /* मोबाइल और डेस्कटॉप दोनों के लिए सही फिट */
 }
+/* ==========================================================
+   STATS SECTION FIX (RESTORE SECOND IMAGE STYLE)
+   ========================================================== */
+
+/* 1. Main Stats Outer Box - Clean & Transparent Container */
+.stats-box {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    padding: 20px 10px !important;
+    max-width: 900px !important;
+    margin: 30px auto !important;
+}
+
+/* 2. Grid Layout for Cards */
+.stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    gap: 20px !important; /* कार्ड्स के बीच सही गैप */
+}
+
+/* 3. Individual Stat Card (As Seen in 2nd Photo) */
+.stat-item {
+    background: rgba(15, 23, 42, 0.85) !important; /* Dark Glass Card */
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    padding: 25px 15px !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 4px solid #ffc107 !important; /* Highlight Yellow Bottom Border */
+    text-align: center !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 193, 7, 0.3) !important;
+}
+
+/* 4. Large Numbers Style (e.g. 50K+, 100K+) */
+.stat-item h3 {
+    font-size: 36px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important; /* Bright White Text */
+    margin-bottom: 6px !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 5. Sub-label Text Style (e.g. Happy Customers) */
+.stat-item p {
+    color: #cbd5e1 !important; /* Easy-to-read Light Text */
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+}
+
+/* Mobile Alignment Fix */
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: 1fr !important; /* मोबाइल पर एक के नीचे एक कार्ड */
+        gap: 16px !important;
+    }
+}
