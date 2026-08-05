@@ -1,25 +1,91 @@
+/* ==========================================================
+   1. GLOBAL VARIABLES & RESET
+   ========================================================== */
 :root { 
     --primary: #ffc107; 
     --dark: #222; 
     --light: #f9f9f9; 
     --blue: #0056b3;
 }
+
 * { 
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
+
+/* Base Dark Theme Background */
 body { 
-    background-color: var(--light); 
-    color: var(--dark); 
+    background-color: #050811 !important; 
+    color: #e2e8f0 !important; 
     line-height: 1.6; 
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
-/* Header & Logo */
-header { 
-    background: var(--dark); 
-    color: #fff; 
+/* Background Section Fix (Removes White Backgrounds) */
+section, 
+.section,
+.city-slider-section, 
+.slider-container,
+div[class*="section"] { 
+    background: transparent !important; 
+    background-color: transparent !important;
+}
+
+/* ==========================================================
+   2. AMBIENT BACKGROUND GLOW LIGHTS
+   ========================================================== */
+body::before {
+    content: '';
+    position: fixed;
+    top: -15%;
+    left: -10%;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(255, 179, 0, 0.28) 0%, rgba(255, 140, 0, 0.1) 45%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: dashboardGlowYellow 14s infinite ease-in-out alternate;
+    z-index: -2;
+    pointer-events: none;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: -15%;
+    right: -10%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(0, 191, 255, 0.25) 0%, rgba(2, 136, 209, 0.1) 50%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(70px);
+    animation: dashboardGlowBlue 16s infinite ease-in-out alternate;
+    z-index: -2;
+    pointer-events: none;
+}
+
+@keyframes dashboardGlowYellow {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+    50% { transform: translate(120px, 80px) scale(1.2); opacity: 1; }
+    100% { transform: translate(40px, 160px) scale(0.9); opacity: 0.7; }
+}
+
+@keyframes dashboardGlowBlue {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+    50% { transform: translate(-140px, -90px) scale(1.25); opacity: 1; }
+    100% { transform: translate(-50px, -180px) scale(0.95); opacity: 0.8; }
+}
+
+/* ==========================================================
+   3. HEADER & NAVIGATION
+   ========================================================== */
+header, .header-container { 
+    background: #111827 !important; 
+    color: #fff !important; 
     padding: 15px 20px; 
     display: flex; 
     justify-content: space-between; 
@@ -28,13 +94,15 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
+
 .logo-area { 
     display: flex; 
     align-items: center; 
     gap: 15px; 
 }
+
 .logo-area img { 
     height: 50px; 
     width: 50px; 
@@ -42,34 +110,40 @@ header {
     object-fit: cover; 
     background: #fff; 
 }
+
 .logo-area h1 { 
-    color: var(--primary); 
+    color: #ffffff !important; 
     font-size: 22px; 
 }
 
-/* Navigation Menu */
+.logo-area h1 span {
+    color: var(--primary) !important;
+}
+
 nav {
     display: flex;
     align-items: center;
 }
+
 .nav-links {
     display: flex;
     gap: 20px;
     list-style: none;
 }
+
 .nav-links a {
-    color: #fff;
+    color: #ffffff !important;
     text-decoration: none;
     font-weight: 600;
     font-size: 15px;
     transition: 0.3s;
 }
+
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--primary);
+    color: var(--primary) !important;
 }
 
-/* Menu Toggle Button */
 .menu-btn {
     display: none;
     font-size: 20px;
@@ -85,30 +159,43 @@ nav {
 .contact-top { 
     font-size: 16px; 
     font-weight: bold; 
+    color: #ffffff !important;
 }
+
 .contact-top a { 
-    color: var(--primary); 
+    color: var(--primary) !important; 
     text-decoration: none; 
 }
 
-/* Hero Section */
-.hero { 
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('image/WhatsApp Image 2026-07-29 at 4.22.10 PM.jpeg') no-repeat center center/cover; 
-    color: #fff; 
+/* ==========================================================
+   4. HERO BANNER SECTION
+   ========================================================== */
+.hero, .hero-section, .banner { 
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('image/WhatsApp Image 2026-07-29 at 4.22.10 PM.jpeg') no-repeat center center/cover !important; 
+    color: #ffffff !important; 
     text-align: center; 
     padding: 90px 20px; 
 }
+
+.hero h1, .hero h2, .hero p, 
+.hero-content h1, .hero-content p { 
+    color: #ffffff !important; 
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
+}
+
 .hero h2 { 
     font-size: 34px; 
     margin-bottom: 15px; 
 }
+
 .hero p { 
     font-size: 18px; 
     margin-bottom: 25px; 
 }
+
 .btn { 
-    background: var(--primary); 
-    color: var(--dark); 
+    background: var(--primary) !important; 
+    color: #111 !important; 
     padding: 12px 25px; 
     text-decoration: none; 
     font-weight: bold; 
@@ -116,106 +203,178 @@ nav {
     display: inline-block; 
     transition: 0.3s; 
 }
+
 .btn:hover { 
-    background: #e0a800; 
+    background: #e0a800 !important; 
 }
 
-/* Section Styling */
+/* ==========================================================
+   5. DARK GLASS CARDS & GENERAL CONTENT BOXES
+   ========================================================== */
 .section { 
     padding: 40px 20px; 
     max-width: 1000px; 
     margin: auto; 
 }
-.section h3 { 
-    text-align: center; 
-    font-size: 28px; 
-    margin-bottom: 25px; 
-    color: var(--dark); 
+
+/* Frosted Dark Glass Boxes */
+.card,
+.content-box,
+.welcome-card, 
+.gbp-section,
+.faq-box,
+.stats-box,
+.stat-item,
+.city-slide-card,
+.container > div { 
+    background: rgba(15, 23, 42, 0.8) !important; 
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+    transition: all 0.3s ease !important;
 }
 
-/* Services Grid */
-.services-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 20px; 
-}
-.card { 
-    background: #fff; 
-    padding: 30px; 
-    border-radius: 12px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-    text-align: center; 
-    transition: 0.3s; 
-    border-bottom: 4px solid var(--primary); 
-}
-.card:hover { 
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
-}
-.card h4 { 
-    margin-bottom: 12px; 
-    font-size: 20px; 
-    color: var(--dark); 
-}
-.card p { 
-    color: #666; 
-    font-size: 14px; 
+/* ALL CARD TEXT FIXES */
+h1, h2, h3, h4,
+.section h3, 
+.content-box h2, .content-box h3,
+.card h4, .faq-box h4,
+.stat-item h3, .slider-title {
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+    opacity: 1 !important;
 }
 
-/* Content Sections */
-.content-box { 
-    background: #fff; 
-    padding: 30px; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
-    margin-top: 30px; 
+/* Highlight Golden Titles */
+.content-box h2,
+.stat-item h3,
+.welcome-card h1, .welcome-card h2,
+.slider-title {
+    color: #ffca28 !important;
 }
-.content-box h2 { 
-    color: var(--blue); 
-    margin-bottom: 15px; 
-    font-size: 26px; 
+
+/* Paragraphs and Sub-text */
+p, span, div,
+.card p, .content-box p, 
+.gbp-section p, .stat-item p { 
+    color: #e2e8f0 !important; 
+    line-height: 1.6;
+    opacity: 1 !important;
 }
-.content-box h3 { 
-    text-align: left;
-    margin-top: 20px; 
-    margin-bottom: 10px; 
-    color: #333; 
-    font-size: 20px;
+
+/* Card Hover Animations */
+.card:hover, .stat-item:hover, .city-slide-card:hover { 
+    transform: translateY(-5px) !important; 
+    border-color: rgba(255, 193, 7, 0.5) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 20px rgba(255, 193, 7, 0.2) !important; 
 }
-.content-box p { 
-    margin-bottom: 15px; 
-    color: #555; 
-}
-.blog-meta { 
-    color: #775; 
-    font-size: 14px; 
-    margin-bottom: 25px; 
-    border-bottom: 1px solid #eee; 
-    padding-bottom: 10px; 
-}
+
 .cta-box { 
-    background: #fff8e1; 
-    border-left: 4px solid var(--primary); 
+    background: rgba(255, 193, 7, 0.15) !important; 
+    border-left: 4px solid var(--primary) !important; 
     padding: 20px; 
     margin-top: 30px; 
-    border-radius: 4px; 
+    border-radius: 8px !important; 
 }
 
-/* Auto Image Slider Styles */
+/* ==========================================================
+   6. SLIDER & CITY CARDS SECTION
+   ========================================================== */
+.city-slider-section {
+    padding: 35px 15px;
+    text-align: center;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.city-cards-wrapper {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 5px;
+    scrollbar-width: none;
+}
+
+.city-cards-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.city-slide-card {
+    min-width: 270px;
+    max-width: 270px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.city-slide-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: fill;
+    display: block;
+}
+
+.city-name {
+    padding: 14px 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffca28 !important; /* Standout Gold City Name */
+    text-align: center;
+}
+
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    background-color: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    color: #ffca28;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.slide-btn:hover {
+    background-color: var(--primary);
+    color: #111;
+}
+
+.prev-btn { left: -10px; }
+.next-btn { right: -10px; }
+
+/* Image Slider Track Fix */
 .slider-wrapper {
     width: 100%;
     max-width: 800px;
     margin: 30px auto;
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border: 3px solid var(--primary);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border: 2px solid var(--primary);
 }
+
 .slider-track {
     display: flex;
     width: 1100%;
     animation: slideAnimation 25s infinite;
 }
+
 .slider-track img {
     width: 9.09%;
     object-fit: cover;
@@ -237,135 +396,21 @@ nav {
     100% { transform: translateX(0); }
 }
 
-/* Google Review Section */
-.gbp-section { 
-    background: #fff; 
-    padding: 30px; 
-    border-radius: 8px; 
-    text-align: center; 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
-    margin-top: 20px; 
-}
-.gbp-section p { 
-    margin-bottom: 20px; 
-    color: #555; 
-}
-
-/* FAQ Section */
-.faq-box { 
-    background: #fff; 
-    margin-bottom: 15px; 
-    padding: 20px; 
-    border-radius: 5px; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
-}
-.faq-box h4 { 
-    margin-bottom: 8px; 
-    color: var(--blue); 
-}
-
-/* Footer */
-footer { 
-    background: var(--dark); 
-    color: #fff; 
-    text-align: center; 
-    padding: 20px; 
-    margin-top: 40px; 
-}
-
-/* Floating WhatsApp Button */
-.whatsapp-float { 
-    position: fixed; 
-    bottom: 20px; 
-    right: 20px; 
-    background: #25d366; 
-    color: #fff; 
-    padding: 12px 20px; 
-    border-radius: 50px; 
-    font-weight: bold; 
-    text-decoration: none; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
-    z-index: 1000; 
-}
-
-/* Responsive Mobile Navigation */
-@media (max-width: 850px) {
-    .menu-btn {
-        display: block;
-    }
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: #111;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 15px 20px;
-        gap: 15px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-    }
-    .nav-links.active {
-        display: flex;
-    }
-    .contact-top {
-        font-size: 14px;
-    }
-}
-/* Stats Section Styling */
-.stats-box { 
-    background: #fff; 
-    padding: 30px; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
-    margin-top: 20px; 
-    text-align: center; 
-}
-
-.stats-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 20px; 
-}
-
-.stat-item { 
-    padding: 20px 15px; 
-    background: #f9f9f9; 
-    border-radius: 8px; 
-    border-bottom: 4px solid var(--primary); 
-    transition: 0.3s;
-}
-
-.stat-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
-.stat-item h3 { 
-    font-size: 32px; 
-    color: var(--dark); 
-    margin-bottom: 5px; 
-    font-weight: bold;
-}
-
-.stat-item p { 
-    color: #555; 
-    font-size: 15px; 
-    font-weight: 600;
-}
-/* Clean Floating Call Button */
+/* ==========================================================
+   7. FLOATING ACTION BUTTONS & FOOTER
+   ========================================================== */
 .call-float {
     position: fixed;
-    bottom: 90px; /* व्हाट्सएप बटन के ठीक ऊपर */
+    bottom: 90px;
     right: 25px;
     width: 55px;
     height: 55px;
-    background-color: #0288d1; /* प्रोफेशनल कॉल ब्लू कलर */
+    background-color: #0288d1;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(2, 136, 209, 0.4);
+    box-shadow: 0 4px 15px rgba(2, 136, 209, 0.5);
     z-index: 9999;
     transition: all 0.3s ease;
     text-decoration: none;
@@ -374,10 +419,8 @@ footer {
 .call-float:hover {
     transform: scale(1.12);
     background-color: #01579b;
-    box-shadow: 0 6px 20px rgba(2, 136, 209, 0.6);
 }
 
-/* Clean Floating WhatsApp Widget */
 .whatsapp-float {
     position: fixed;
     bottom: 25px;
@@ -389,7 +432,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
     z-index: 9999;
     transition: all 0.3s ease;
     text-decoration: none;
@@ -398,102 +441,44 @@ footer {
 .whatsapp-float:hover {
     transform: scale(1.12);
     background-color: #20ba5a;
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-}
-/* City Slider Container */
-.city-slider-section {
-    padding: 35px 15px;
-    background-color: #fcfcfc;
-    text-align: center;
 }
 
-.slider-title {
-    font-size: 26px;
-    font-weight: 800;
-    color: #111;
-    margin-bottom: 20px;
+footer { 
+    background: #0b0f19 !important; 
+    color: #94a3b8 !important; 
+    text-align: center; 
+    padding: 20px; 
+    margin-top: 40px; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.slider-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
+/* ==========================================================
+   8. MOBILE RESPONSIVENESS
+   ========================================================== */
+@media (max-width: 850px) {
+    .menu-btn {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #0f172a;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 15px 20px;
+        gap: 15px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .contact-top {
+        font-size: 14px;
+    }
 }
 
-/* Horizontal Cards Scroll Area */
-.city-cards-wrapper {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 10px 5px;
-    scrollbar-width: none; /* Firefox में स्क्रॉलबार छिपाने के लिए */
-}
-
-.city-cards-wrapper::-webkit-scrollbar {
-    display: none; /* Chrome/Safari में स्क्रॉलबार छिपाने के लिए */
-}
-
-/* Individual City Card Style */
-.city-slide-card {
-    min-width: 270px; /* Width बढ़ा दी गई है ताकि पूरा बैनर फिट आ सके */
-    max-width: 270px;
-    background: #ffffff;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid #eaeaea;
-    flex-shrink: 0;
-    transition: transform 0.2s ease;
-}
-
-.city-slide-card img {
-    width: 100%;
-    height: 250px; /* बैनर की सही Height */
-    object-fit: fill; /* फ़ोटो को बिना काटे पूरा कार्ड में फिट करेगा */
-    display: block;
-}
-
-.city-name {
-    padding: 14px 10px;
-    font-size: 18px;
-    font-weight: 700;
-    color: #d84315; /* स्क्रीनशॉट जैसा ऑरेंज कलर */
-    text-align: center;
-}
-
-/* Navigation Arrow Buttons */
-.slide-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 42px;
-    height: 42px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    font-size: 16px;
-    color: #d84315;
-    cursor: pointer;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-}
-
-.slide-btn:hover {
-    background-color: #d84315;
-    color: #ffffff;
-}
-
-.prev-btn { left: -10px; }
-.next-btn { right: -10px; }
-
-/* Mobile Optimization */
 @media (max-width: 768px) {
     .city-slide-card {
         min-width: 160px;
@@ -503,263 +488,8 @@ footer {
         height: 150px;
     }
     .city-name {
-        font-size: 16px;
+        font-size: 15px;
     }
     .prev-btn { left: 2px; }
     .next-btn { right: 2px; }
-}
-/* ==========================================================
-   DYNAMIC AMBIENT CAR DASHBOARD LIGHTING (LUXURY NIGHT DRIVE)
-   ========================================================== */
-
-/* 1. Deep Midnight Cockpit Background */
-body {
-    background-color: #050811 !important;
-    color: #e2e8f0 !important;
-    position: relative;
-    overflow-x: hidden;
-    min-height: 100vh;
-}
-
-/* 2. Yellow Ambient Glow (Golden Headlight Effect - Top Left) */
-body::before {
-    content: '';
-    position: fixed;
-    top: -15%;
-    left: -10%;
-    width: 650px;
-    height: 650px;
-    background: radial-gradient(circle, rgba(255, 179, 0, 0.28) 0%, rgba(255, 140, 0, 0.1) 45%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(60px);
-    animation: dashboardGlowYellow 14s infinite ease-in-out alternate;
-    z-index: -2;
-    pointer-events: none;
-}
-
-/* 3. Blue Ambient Glow (Electric Blue Speedlight - Bottom Right) */
-body::after {
-    content: '';
-    position: fixed;
-    bottom: -15%;
-    right: -10%;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(0, 191, 255, 0.25) 0%, rgba(2, 136, 209, 0.1) 50%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(70px);
-    animation: dashboardGlowBlue 16s infinite ease-in-out alternate;
-    z-index: -2;
-    pointer-events: none;
-}
-
-/* 4. Ambient Movement Animations (Dashboard Lighting Motion) */
-@keyframes dashboardGlowYellow {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0.8;
-    }
-    50% {
-        transform: translate(120px, 80px) scale(1.2);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(40px, 160px) scale(0.9);
-        opacity: 0.7;
-    }
-}
-
-@keyframes dashboardGlowBlue {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0.7;
-    }
-    50% {
-        transform: translate(-140px, -90px) scale(1.25);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-50px, -180px) scale(0.95);
-        opacity: 0.8;
-    }
-}
-
-/* 5. Luxury 3D Floating Glass Cards (Dashboard Console Cards) */
-.welcome-card, 
-.container > div, 
-section > div.card,
-.city-slide-card,
-body > div:nth-child(2) > div {
-    background: rgba(13, 19, 33, 0.75) !important;
-    border-radius: 20px !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(255, 179, 0, 0.08) !important;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-}
-
-/* 6. Card Hover Effect (Golden-Blue Ambient Reaction) */
-.welcome-card:hover, 
-.container > div:hover,
-.city-slide-card:hover {
-    transform: translateY(-8px) scale(1.01) !important;
-    border-color: rgba(255, 179, 0, 0.5) !important;
-    box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.9),
-        0 0 30px rgba(255, 179, 0, 0.25),
-        0 0 15px rgba(0, 191, 255, 0.2) !important;
-}
-
-/* Text Colors */
-h1, h2, h3, .welcome-title, .slider-title {
-    color: #ffffff !important;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-p, span, div {
-    color: #cbd5e1;
-}
-/* ==========================================================
-   FIX: RESTORE HEADER & HERO TEXT + AMBIENT BACKGROUND ONLY BELOW
-   ========================================================== */
-
-/* 1. हेडर और लोगो टेक्स्ट को वापस सही (सफ़ेद/पीला) करें */
-header, .header-container, nav {
-    background-color: #111827 !important;
-}
-
-header .logo-area h1, 
-header a, 
-.nav-links a,
-header div {
-    color: #ffffff !important; /* हेडर टेक्स्ट White */
-    text-shadow: none !important;
-}
-
-header .logo-area h1 span {
-    color: #ffc107 !important; /* पीला ब्रांड नेम */
-}
-
-/* 2. बस स्टैंड वाले बैनर (Hero Section) के टेक्स्ट को सफ़ेद करें */
-.hero, .hero-section, .banner, body > div:first-of-type {
-    color: #ffffff !important;
-}
-
-.hero h1, .hero h2, .hero p, 
-.hero-content h1, .hero-content p,
-.banner h1, .banner p,
-div[class*="hero"] h1, div[class*="hero"] p {
-    color: #ffffff !important; /* बैनर का लिखावट सफ़ेद */
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
-}
-
-/* 3. सिर्फ सफ़ेद बैकग्राउंड वाले हिस्से में 3D डार्क एम्बिएंट लुक */
-body {
-    background-color: #080c18 !important;
-}
-
-/* 4. बैकग्राउंड में तैरने वाली येलो और ब्लू लाइट */
-body::before {
-    content: '';
-    position: fixed;
-    top: 30%;
-    left: -10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(255, 179, 0, 0.2) 0%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(60px);
-    animation: glowYellow 14s infinite ease-in-out alternate;
-    z-index: 0;
-    pointer-events: none;
-}
-
-body::after {
-    content: '';
-    position: fixed;
-    bottom: 0%;
-    right: -10%;
-    width: 550px;
-    height: 550px;
-    background: radial-gradient(circle, rgba(2, 136, 209, 0.2) 0%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(70px);
-    animation: glowBlue 16s infinite ease-in-out alternate;
-    z-index: 0;
-    pointer-events: none;
-}
-
-@keyframes glowYellow {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(80px, 60px) scale(1.2); }
-    100% { transform: translate(30px, 120px) scale(0.9); }
-}
-
-@keyframes glowBlue {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-100px, -60px) scale(1.2); }
-    100% { transform: translate(-30px, -120px) scale(0.95); }
-}
-
-/* 5. बीच के व्हाइट बॉक्सेस (Cards) एकदम साफ़ रहेंगे */
-.welcome-card, 
-.container > div, 
-section > div.card {
-    position: relative;
-    z-index: 1;
-    background: #ffffff !important;
-    border-radius: 20px !important;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
-}
-
-/* कार्ड्स के अंदर का टेक्स्ट डार्क और साफ़ दिखेगा */
-.welcome-card h1, .welcome-card h2, .welcome-card h3,
-.welcome-card p, .welcome-card span,
-.container > div h1, .container > div h2, .container > div p {
-    color: #1e293b !important;
-    text-shadow: none !important;
-}
-
-.welcome-card h2, .welcome-card h1 {
-    color: #0288d1 !important;
-}
-/* ==========================================================
-   DARK GLASS BOX WITH BRIGHT WHITE TEXT
-   ========================================================== */
-
-/* 1. White Box ko Dark Glass (Transparent Blur) Banayein */
-.welcome-card, 
-.container > div, 
-section > div.card,
-main > div,
-body > div:nth-child(2) > div {
-    background: rgba(15, 23, 42, 0.75) !important; /* Dark Glass Color */
-    backdrop-filter: blur(16px) !important;         /* Background Blur Effect */
-    -webkit-backdrop-filter: blur(16px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.18) !important; /* Soft Glow Border */
-    border-radius: 22px !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* 2. Box ke Andar ka Sabhi Text White Karein */
-.welcome-card h1, .welcome-card h2, .welcome-card h3,
-.container > div h1, .container > div h2, .container > div h3,
-section h1, section h2, section h3 {
-    color: #ffffff !important; /* Pure White Heading */
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7) !important;
-}
-
-/* "Your Trusted Travel Partner..." Blue Text ko Pure White Karein */
-.welcome-card h2, .container > div h2, div h2 {
-    color: #ffffff !important; /* White Font */
-    font-weight: 700 !important;
-}
-
-/* Paragraph Text ko Soft White/Light Gray Karein */
-.welcome-card p, .container > div p, section p, div p {
-    color: #e2e8f0 !important; /* Easy to read Light Text */
-    line-height: 1.6;
 }
