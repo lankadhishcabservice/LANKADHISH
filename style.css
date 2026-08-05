@@ -570,3 +570,84 @@ footer {
         gap: 16px !important;
     }
 }
+/* ==========================================================
+   SERVICES PAGE FIX (GRID & CARDS CENTER ALIGNMENT)
+   ========================================================== */
+
+/* 1. Main Services Container Center Fix */
+.services-section, 
+.services-container, 
+main section {
+    max-width: 1100px !important;
+    margin: 40px auto !important;
+    padding: 0 20px !important;
+    text-align: center !important;
+}
+
+/* 2. Page Title Fix */
+.services-section h2, 
+.services-section h1,
+main h2 {
+    color: #ffca28 !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    margin-bottom: 30px !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8) !important;
+    text-align: center !important;
+}
+
+/* 3. Services Cards Grid (2-Column on Desktop, 1-Column on Mobile) */
+.services-grid, 
+.service-cards,
+.section > div:has(.service-card),
+div:has(> .service-card) {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 22px !important; /* कार्ड्स के बीच प्रॉपर गैप */
+    margin-top: 25px !important;
+}
+
+/* 4. Individual Service Card Styling */
+.service-card, 
+.card {
+    background: rgba(15, 23, 42, 0.85) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 16px !important;
+    padding: 24px 20px !important;
+    text-align: left !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Hover Effect for Service Cards */
+.service-card:hover, 
+.card:hover {
+    transform: translateY(-6px) !important;
+    border-color: rgba(255, 193, 7, 0.5) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 18px rgba(255, 193, 7, 0.25) !important;
+}
+
+/* 5. Service Titles (e.g. 🚘 One-Way Drop Service) */
+.service-card h3, 
+.service-card h4, 
+.card h3, 
+.card h4 {
+    color: #ffffff !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+/* 6. Service Description Text */
+.service-card p, 
+.card p {
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
