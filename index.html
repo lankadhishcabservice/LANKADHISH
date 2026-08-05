@@ -121,22 +121,44 @@
     <footer>
         <p>&copy; 2026 Lankadhish Cab Service. All Rights Reserved. | Contact: +91-9157575675</p>
     </footer>
-    <script>
-        function toggleMenu() {
-            document.getElementById("navLinks").classList.toggle("active");
-        }
-    </script>
-    <script>
+   <script>
     const sliderContainer = document.getElementById('cardsContainer');
     const leftButton = document.getElementById('slideLeft');
     const rightButton = document.getElementById('slideRight');
 
-    leftButton.addEventListener('click', () => {
-        sliderContainer.scrollBy({ left: -220, behavior: 'smooth' });
-    });
+    const scrollAmount = 220; // एक बार में कितना खिसकना चाहिए
 
-    rightButton.addEventListener('click', () => {
-        sliderContainer.scrollBy({ left: 220, behavior: 'smooth' });
+    // 1. Right Button Click Function
+    function slideNext() {
+        // अगर स्लाइडर आखरी कार्ड तक पहुँच जाए, तो वापस शुरू से चालू हो जाएगा
+        if (sliderContainer.scrollLeft + sliderContainer.clientWidth >= sliderContainer.scrollWidth - 10) {
+            sliderContainer.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            sliderContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    }
+
+    // 2. Left Button Click Function
+    function slidePrev() {
+        sliderContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    }
+
+    // मैनुअल बटन क्लिक्स
+    rightButton.addEventListener('click', slideNext);
+    leftButton.addEventListener('click', slidePrev);
+
+    // 3. AUTO-PLAY LOGIC (हर 2.5 सेकंड में अपने-आप आगे बढ़ेगा)
+    let autoSlideInterval = setInterval(slideNext, 2500);
+
+    // जब यूजर माउस या उंगली से कार्ड्स पर टच करे, तब ऑटो-स्लाइड रुक जाएगा
+    sliderContainer.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+    sliderContainer.addEventListener('mouseleave', () => {
+        autoSlideInterval = setInterval(slideNext, 2500);
+    });
+    
+    sliderContainer.addEventListener('touchstart', () => clearInterval(autoSlideInterval));
+    sliderContainer.addEventListener('touchend', () => {
+        autoSlideInterval = setInterval(slideNext, 2500);
     });
 </script>
 </body>
