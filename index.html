@@ -126,6 +126,19 @@
             document.getElementById("navLinks").classList.toggle("active");
         }
     </script>
+    <script>
+    const sliderContainer = document.getElementById('cardsContainer');
+    const leftButton = document.getElementById('slideLeft');
+    const rightButton = document.getElementById('slideRight');
+
+    leftButton.addEventListener('click', () => {
+        sliderContainer.scrollBy({ left: -220, behavior: 'smooth' });
+    });
+
+    rightButton.addEventListener('click', () => {
+        sliderContainer.scrollBy({ left: 220, behavior: 'smooth' });
+    });
+</script>
 </body>
   <!-- Floating Direct Call Button -->
 <a href="tel:+919157575675" 
