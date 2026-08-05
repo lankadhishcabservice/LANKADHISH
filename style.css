@@ -623,88 +623,106 @@ p, span, div {
     color: #cbd5e1;
 }
 /* ==========================================================
-   FIX: DARK AMBIENT BACKGROUND WITH CLEAR VISIBLE TEXT
+   FIX: RESTORE HEADER & HERO TEXT + AMBIENT BACKGROUND ONLY BELOW
    ========================================================== */
 
-/* 1. Luxury Dark Cockpit Background */
-body {
-    background-color: #060913 !important;
-    position: relative;
-    overflow-x: hidden;
-    min-height: 100vh;
+/* 1. हेडर और लोगो टेक्स्ट को वापस सही (सफ़ेद/पीला) करें */
+header, .header-container, nav {
+    background-color: #111827 !important;
 }
 
-/* 2. Ambient Light Orbs (Glow Effects) */
+header .logo-area h1, 
+header a, 
+.nav-links a,
+header div {
+    color: #ffffff !important; /* हेडर टेक्स्ट White */
+    text-shadow: none !important;
+}
+
+header .logo-area h1 span {
+    color: #ffc107 !important; /* पीला ब्रांड नेम */
+}
+
+/* 2. बस स्टैंड वाले बैनर (Hero Section) के टेक्स्ट को सफ़ेद करें */
+.hero, .hero-section, .banner, body > div:first-of-type {
+    color: #ffffff !important;
+}
+
+.hero h1, .hero h2, .hero p, 
+.hero-content h1, .hero-content p,
+.banner h1, .banner p,
+div[class*="hero"] h1, div[class*="hero"] p {
+    color: #ffffff !important; /* बैनर का लिखावट सफ़ेद */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* 3. सिर्फ सफ़ेद बैकग्राउंड वाले हिस्से में 3D डार्क एम्बिएंट लुक */
+body {
+    background-color: #080c18 !important;
+}
+
+/* 4. बैकग्राउंड में तैरने वाली येलो और ब्लू लाइट */
 body::before {
     content: '';
     position: fixed;
-    top: -15%;
+    top: 30%;
     left: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255, 179, 0, 0.22) 0%, transparent 70%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 179, 0, 0.2) 0%, transparent 70%);
     border-radius: 50%;
     filter: blur(60px);
     animation: glowYellow 14s infinite ease-in-out alternate;
-    z-index: -2;
+    z-index: 0;
     pointer-events: none;
 }
 
 body::after {
     content: '';
     position: fixed;
-    bottom: -15%;
+    bottom: 0%;
     right: -10%;
-    width: 650px;
-    height: 650px;
-    background: radial-gradient(circle, rgba(2, 136, 209, 0.22) 0%, transparent 70%);
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(2, 136, 209, 0.2) 0%, transparent 70%);
     border-radius: 50%;
     filter: blur(70px);
     animation: glowBlue 16s infinite ease-in-out alternate;
-    z-index: -2;
+    z-index: 0;
     pointer-events: none;
 }
 
 @keyframes glowYellow {
     0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(100px, 80px) scale(1.2); }
-    100% { transform: translate(30px, 140px) scale(0.9); }
+    50% { transform: translate(80px, 60px) scale(1.2); }
+    100% { transform: translate(30px, 120px) scale(0.9); }
 }
 
 @keyframes glowBlue {
     0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-120px, -80px) scale(1.2); }
-    100% { transform: translate(-40px, -150px) scale(0.95); }
+    50% { transform: translate(-100px, -60px) scale(1.2); }
+    100% { transform: translate(-30px, -120px) scale(0.95); }
 }
 
-/* 3. Pure White Premium Floating Cards */
+/* 5. बीच के व्हाइट बॉक्सेस (Cards) एकदम साफ़ रहेंगे */
 .welcome-card, 
 .container > div, 
-section > div.card,
-body > div:nth-child(2) > div,
-main > div {
+section > div.card {
+    position: relative;
+    z-index: 1;
     background: #ffffff !important;
     border-radius: 20px !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* 4. FIX TEXT COLOR INSIDE CARDS (Drak & Clear Text) */
+/* कार्ड्स के अंदर का टेक्स्ट डार्क और साफ़ दिखेगा */
 .welcome-card h1, .welcome-card h2, .welcome-card h3,
-.container h1, .container h2, .container h3,
-section h1, section h2, section h3,
-main h1, main h2, main h3,
-div h1, div h2, div h3 {
-    color: #0f172a !important; /* डार्क बोल्ड कलर ताकि हेडिंग साफ़ दिखे */
+.welcome-card p, .welcome-card span,
+.container > div h1, .container > div h2, .container > div p {
+    color: #1e293b !important;
     text-shadow: none !important;
 }
 
-.welcome-card p, .container p, section p, main p, div p,
-.welcome-card span, .container span, section span {
-    color: #334155 !important; /* साफ़ डार्क ग्रे टेक्स्ट */
-}
-
-/* Blue Highlight Subtitles inside Cards */
-.welcome-card h2, .welcome-card h3, .container h2 {
-    color: #0288d1 !important; /* आपकी थीम का ब्लू कलर */
+.welcome-card h2, .welcome-card h1 {
+    color: #0288d1 !important;
 }
