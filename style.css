@@ -493,3 +493,15 @@ footer {
     .prev-btn { left: 2px; }
     .next-btn { right: 2px; }
 }
+/* ALL CARDS CENTER ALIGNMENT FIX */
+.welcome-card, 
+.gbp-section,
+.content-box,
+.stats-box,
+.section > div,
+.container > div {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 900px !important; /* कार्ड की सही चौड़ाई */
+    width: 90% !important;       /* मोबाइल और डेस्कटॉप दोनों के लिए सही फिट */
+}
