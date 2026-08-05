@@ -509,92 +509,116 @@ footer {
     .next-btn { right: 2px; }
 }
 /* ==========================================================
-   HIGH-TECH 3D NEON & AMBIENT GLOW BACKGROUND (CAB THEME)
+   DYNAMIC AMBIENT CAR DASHBOARD LIGHTING (LUXURY NIGHT DRIVE)
    ========================================================== */
 
-/* 1. Ultra Dark Luxury Base */
+/* 1. Deep Midnight Cockpit Background */
 body {
-    background-color: #0b0f19 !important;
-    color: #ffffff !important;
+    background-color: #050811 !important;
+    color: #e2e8f0 !important;
     position: relative;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
-/* 2. Floating Golden Light Orb (Top-Left) */
+/* 2. Yellow Ambient Glow (Golden Headlight Effect - Top Left) */
 body::before {
     content: '';
     position: fixed;
-    top: -100px;
-    left: -100px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(255, 180, 0, 0.22) 0%, transparent 70%);
+    top: -15%;
+    left: -10%;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(255, 179, 0, 0.28) 0%, rgba(255, 140, 0, 0.1) 45%, transparent 70%);
     border-radius: 50%;
-    animation: floatGlow 10s infinite alternate ease-in-out;
-    z-index: 0;
+    filter: blur(60px);
+    animation: dashboardGlowYellow 14s infinite ease-in-out alternate;
+    z-index: -2;
     pointer-events: none;
 }
 
-/* 3. Floating Blue Light Orb (Bottom-Right) */
+/* 3. Blue Ambient Glow (Electric Blue Speedlight - Bottom Right) */
 body::after {
     content: '';
     position: fixed;
-    bottom: -100px;
-    right: -100px;
-    width: 550px;
-    height: 550px;
-    background: radial-gradient(circle, rgba(2, 136, 209, 0.22) 0%, transparent 70%);
+    bottom: -15%;
+    right: -10%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(0, 191, 255, 0.25) 0%, rgba(2, 136, 209, 0.1) 50%, transparent 70%);
     border-radius: 50%;
-    animation: floatGlow 12s infinite alternate-reverse ease-in-out;
-    z-index: 0;
+    filter: blur(70px);
+    animation: dashboardGlowBlue 16s infinite ease-in-out alternate;
+    z-index: -2;
     pointer-events: none;
 }
 
-/* 3D Orb Smooth Animation */
-@keyframes floatGlow {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(80px, 100px) scale(1.25); }
+/* 4. Ambient Movement Animations (Dashboard Lighting Motion) */
+@keyframes dashboardGlowYellow {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(120px, 80px) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(40px, 160px) scale(0.9);
+        opacity: 0.7;
+    }
 }
 
-/* 4. Heading & Text Colors */
-body, p, span, li {
-    color: #cbd5e1 !important;
+@keyframes dashboardGlowBlue {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(-140px, -90px) scale(1.25);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50px, -180px) scale(0.95);
+        opacity: 0.8;
+    }
 }
 
-h1, h2, h3, .welcome-title {
-    color: #ffffff !important;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-}
-
-/* 5. 3D Dark Glass Cards with Golden Neon Border */
+/* 5. Luxury 3D Floating Glass Cards (Dashboard Console Cards) */
 .welcome-card, 
 .container > div, 
 section > div.card,
+.city-slide-card,
 body > div:nth-child(2) > div {
-    position: relative;
-    z-index: 2;
-    background: rgba(18, 24, 38, 0.85) !important;
-    border-radius: 22px !important;
-    border: 1px solid rgba(255, 193, 7, 0.35) !important; /* कैब थीम का गोल्डन बॉर्डर */
+    background: rgba(13, 19, 33, 0.75) !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     box-shadow: 
-        0 20px 50px rgba(0, 0, 0, 0.7), 
-        0 0 25px rgba(255, 193, 7, 0.12) !important; /* गोल्डन ग्लो */
-    backdrop-filter: blur(12px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        0 20px 40px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 179, 0, 0.08) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 
-/* Card Titles Inside Dark Box */
-.welcome-card h2, .welcome-card h1, .welcome-card p,
-.container h2, .container p {
-    color: #ffffff !important;
-}
-
-/* 6. 3D Hover & Glowing Pulse Effect */
+/* 6. Card Hover Effect (Golden-Blue Ambient Reaction) */
 .welcome-card:hover, 
-.container > div:hover {
-    transform: translateY(-10px) scale(1.01) !important;
-    border-color: rgba(255, 193, 7, 0.8) !important;
+.container > div:hover,
+.city-slide-card:hover {
+    transform: translateY(-8px) scale(1.01) !important;
+    border-color: rgba(255, 179, 0, 0.5) !important;
     box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.8), 
-        0 0 35px rgba(255, 193, 7, 0.3) !important;
+        0 30px 60px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(255, 179, 0, 0.25),
+        0 0 15px rgba(0, 191, 255, 0.2) !important;
+}
+
+/* Text Colors */
+h1, h2, h3, .welcome-title, .slider-title {
+    color: #ffffff !important;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+p, span, div {
+    color: #cbd5e1;
 }
