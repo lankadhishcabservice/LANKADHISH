@@ -508,3 +508,60 @@ footer {
     .prev-btn { left: 2px; }
     .next-btn { right: 2px; }
 }
+/* ==========================================
+   PREMIUM 3D BACKGROUND & FLOATING CARDS
+   ========================================== */
+
+/* 1. Dynamic 3D Night Travel Background */
+body {
+    background: radial-gradient(circle at 50% 10%, #1e293b 0%, #0f172a 60%, #050914 100%) !important;
+    background-attachment: fixed !important;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* 3D Road Grid Overlay Pattern */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Heading Text Color for Dark Background */
+h1, .welcome-title, section h2 {
+    color: #ffffff !important;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* 2. 3D Floating Glassmorphism Cards */
+.container > div, 
+section > div.card,
+.welcome-card,
+body > div:nth-child(2) > div /* Target content boxes */ {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-radius: 20px !important;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 2px 6px rgba(255, 255, 255, 0.2) inset !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Card Hover 3D Lift Effect */
+.container > div:hover, 
+.welcome-card:hover {
+    transform: translateY(-8px) scale(1.01) !important;
+    box-shadow: 
+        0 30px 60px rgba(2, 136, 209, 0.25),
+        0 4px 12px rgba(255, 255, 255, 0.4) inset !important;
+}
